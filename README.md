@@ -24,7 +24,7 @@ The project applies the four major types of business analytics: **Descriptive, D
 |---|---|
 | Dataset | Bike Stations Sharing Data |
 | Source | Module-End Assignment Dataset |
-| Domain | Smart City / Urban Mobility |
+| Domain | Smart City Public Bike Sharing |
 | Data Period | January 2022 – November 2025 |
 | Total Records | 2,856 stations |
 | Total Contracts | 25 |
@@ -167,7 +167,7 @@ Based on the findings, the following improvement strategies were identified:
 ## 💡 Key Business Insights
 
 | Area | Key Finding |
-|---|---|
+
 | Total Stations | 2,856 |
 | Total Contracts | 25 |
 | Total Bike Stands | 57.20K |
