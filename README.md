@@ -27,7 +27,7 @@ The project follows four analytical approaches: **Descriptive, Diagnostic, Predi
 | Total Stations | 2,856 |
 | Total Contracts | 25 |
 | Data Timeline | January 2022 – November 2025 |
-| Domain | Smart City / Urban Mobility |
+| Domain | Smart city public bike sharing |
 
 **Key attributes:**
 - Station Name and Station ID
