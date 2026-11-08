@@ -225,8 +225,6 @@ Smart-City-Bike-Sharing-Power-BI/
 └── README.md
 ```
 
-*Replace the example filenames with the actual filenames uploaded. Share the dataset only if redistribution is permitted.*
-
 ## 🚀 Skills Demonstrated
 
 - Data Cleaning and Data Preparation
