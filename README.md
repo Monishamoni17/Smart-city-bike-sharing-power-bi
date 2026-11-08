@@ -1,207 +1,210 @@
-# 🚲 Smart City Bike Sharing Analysis | Power BI
+# 🚲 Smart City Bike Sharing Analysis | Power Query & Power BI
 
 ## 📌 Project Overview
 
-This project focuses on analysing smart city bike-sharing data to evaluate station performance, bike availability and operational efficiency across **25 bike-sharing contracts**.
+This project focuses on analysing public bike-sharing data to understand station performance, bike availability, operational status and distribution patterns across different bike-sharing contracts.
 
-Using Microsoft Power Query and Power BI, the raw dataset was cleaned, transformed and organised into a structured star-schema data model. DAX measures were developed to calculate key performance indicators (KPIs), and interactive dashboards were created to identify operational patterns, availability gaps and areas requiring improvement.
+Using **Microsoft Power BI and Power Query**, I transformed raw bike station data into meaningful business insights through data cleaning, data transformation, data modelling, DAX calculations and interactive dashboard development.
 
-The project follows four analytical approaches: **Descriptive, Diagnostic, Predictive and Prescriptive Analysis.**
+The project applies the four major types of business analytics: **Descriptive, Diagnostic, Predictive and Prescriptive Analysis** to identify operational challenges and suggest improvements for bike-sharing networks.
 
 ## 🎯 Project Objectives
 
 - Analyse bike station distribution across different contracts.
-- Evaluate open and closed station performance.
-- Measure bike availability and identify low-availability contracts.
-- Examine station availability patterns using last-update dates.
-- Identify contracts requiring station maintenance.
-- Develop data-driven strategies to improve bike availability and operational efficiency.
+- Understand bike availability and station capacity.
+- Identify open and closed station patterns.
+- Compare bike availability across contracts.
+- Examine monthly patterns in bike availability and station closures.
+- Identify contracts requiring additional bikes and station maintenance.
+- Provide data-driven recommendations to improve operational efficiency.
 
 ## 📂 Dataset Information
 
-| Attribute | Details |
+| Description | Details |
 |---|---|
-| Dataset | Bike Station Sharing Data |
-| File format | CSV |
+| Dataset | Bike Stations Sharing Data |
 | Source | Module-End Assignment Dataset |
-| Total Stations | 2,856 |
+| Domain | Smart City / Urban Mobility |
+| Data Period | January 2022 – November 2025 |
+| Total Records | 2,856 stations |
 | Total Contracts | 25 |
-| Data Timeline | January 2022 – November 2025 |
-| Domain | Smart city public bike sharing |
+| Data Format | CSV |
 
-**Key attributes:**
-- Station Name and Station ID
-- Address, Latitude and Longitude
-- Contract Name
-- Station Status (Open / Closed)
-- Bike Stands
-- Available Bikes
-- Available Bike Stands
-- Last Update
+The dataset contains information about bike stations, station locations, contracts, operational status, total bike stands, available bikes, available bike stands and last-update timestamps.
 
 ## 🛠️ Tools & Technologies
 
-| Tool | Application |
+| Tool | Purpose |
 |---|---|
-| Microsoft Power BI Desktop | Data modelling and dashboard development |
-| Power Query Editor | Data cleaning and transformation |
-| DAX | KPI calculations and analytical measures |
-| Excel | Dataset inspection and validation |
+| Microsoft Excel | Initial data inspection and validation |
+| Power Query | Data cleaning and transformation |
+| Power BI | Data modelling, DAX calculations and interactive dashboards |
+| DAX | Calculated measures and KPI development |
 | GitHub | Project documentation and portfolio presentation |
 
-## 🔄 Data Cleaning & Transformation
+## 🔄 Project Workflow
 
-The raw CSV dataset was processed using Power Query Editor.
+### 1. Data Cleaning and Preparation
 
-**Key transformation steps:**
+- Imported the raw CSV dataset into Power BI.
+- Inspected data using column quality, column distribution and column profiling.
+- Checked and corrected data types.
+- Identified and handled duplicate and unwanted records where applicable.
+- Removed unnecessary columns.
+- Split the Last Update column into separate Date and Time columns.
+- Prepared the dataset for further analysis.
 
-1. Imported the raw CSV dataset into Power Query.
-2. Performed data profiling using Column Quality, Column Distribution and Column Profile.
-3. Corrected data types for text, whole number, decimal and date columns.
-4. Split the Last Update column into Date and Time.
-5. Removed unnecessary columns.
-6. Created unique dimension tables and identifiers.
-7. Developed a central fact table containing foreign keys and numerical attributes.
-8. Created a Date dimension for date-based analysis.
-9. Checked and validated the transformed data.
+### 2. Data Transformation – Power Query
 
-## 🏗️ Data Modelling
+- Used Power Query Editor to clean and transform the dataset.
+- Created separate fact and dimension tables.
+- Extracted relevant attributes for dimension tables.
+- Prepared station, contract and status information.
+- Created a Date Dimension table containing Year, Month, Month Name and Year Month.
+- Validated the transformed data.
 
-A **Star Schema** was developed to organise the data efficiently and support analytical reporting.
+### 3. Data Modelling – Power BI
 
-### Data Model Structure
+Created a **Star Schema** consisting of one central fact table and four dimension tables.
 
-**Fact Table:**
-- Bike_availability_fact
+| Table | Purpose |
+|---|---|
+| Bike_availability_fact | Stores station-level bike availability and capacity information |
+| Station_dim | Station ID, station name, address, latitude and longitude |
+| Contract_dim | Contract ID and contract name |
+| Status_dim | Status ID and station status |
+| Date_dim | Date, year, month, month name and year month |
 
-**Dimension Tables:**
-- Station_dim
-- Contract_dim
-- Status_dim
-- Date_dim
+Established one-to-many relationships between the dimension tables and the central fact table, using single-direction filtering.
 
-**Relationships:**
-- Station_dim → Bike_availability_fact
-- Contract_dim → Bike_availability_fact
-- Status_dim → Bike_availability_fact
-- Date_dim → Bike_availability_fact
+### 4. DAX Calculations
 
-All relationships follow a one-to-many structure from the dimension tables to the fact table, with single-direction filtering.
+Created DAX measures to calculate important business KPIs and support dashboard analysis.
 
-## 📐 Key DAX Measures & KPIs
+**Key measures:**
+- Total Stations
+- Total Contracts
+- Total Bike Stands
+- Total Available Bikes
+- Total Available Bike Stands
+- Open Stations
+- Closed Stations
+- Open Station Percentage
+- Closed Station Percentage
+- Bike Availability Percentage
+- Average Bikes per Station
+- Average Stands per Station
 
-| KPI | Result |
-|---|---:|
+### 5. Dashboard Development
+
+Developed five interactive Power BI report pages to provide different perspectives of bike-sharing network performance.
+
+**Report pages include:**
+
+1. KPI Summary
+2. Descriptive Analysis
+3. Diagnostic Analysis
+4. Predictive Analysis
+5. Prescriptive Analysis
+
+**Key visualisations:**
+- KPI cards for station count, bike availability and operational status.
+- Contract-wise station distribution using column charts.
+- Top 10 contracts by station count using a funnel chart.
+- Geographical distribution of stations using a map.
+- Open vs Closed stations using a donut chart.
+- Stations vs Closed Stations using a scatter chart.
+- Average Bikes per Station by Contract using a bar chart.
+- Closed Stations by Contract using a waterfall chart.
+- Monthly bike availability and closed-station trends using line charts.
+- Contracts requiring more bikes and station repairs using tables with conditional formatting.
+
+**Interactivity:**
+- Contract Name slicer.
+- Year slicer.
+- Month slicer.
+- Status slicer.
+- Cross-filtering between visuals.
+- Top 10 filtering.
+- Conditional formatting.
+
+## 📊 Four Types of Business Analysis
+
+### 1. Descriptive Analysis – What Happened?
+
+- The dataset contains **2,856 bike stations** across 25 contracts.
+- The network has approximately **57.20K total bike stands**.
+- Total available bikes are approximately **19.65K**.
+- 92.79% of stations are open, while 7.21% are closed.
+- The top 10 contracts account for approximately 84% of all stations.
+- Lyon (448), Toulouse (431) and Bruxelles-Capitale (357) have the highest station counts.
+- Overall bike availability is 34.34%.
+
+### 2. Diagnostic Analysis – Why Did It Happen?
+
+- Marseille recorded the highest number of closed stations, with 52.
+- Vilnius recorded the highest station closure percentage at 97.30%.
+- Cergy-Pontoise recorded a closure percentage of 69.57%.
+- Six contracts—Vilnius, Rouen, Mulhouse, Marseille, Cergy-Pontoise and Santander—have particularly low average bikes per station.
+- Lund, Dublin, Bruxelles-Capitale and Ljubljana recorded higher average bikes per station.
+
+### 3. Predictive Analysis – What Is Likely to Happen?
+
+- The monthly average bikes-per-station visual shows a slightly rising pattern.
+- The monthly closed-station trend shows a slightly downward pattern with occasional spikes.
+- These patterns help identify possible operational trends that require monitoring.
+- Reliable future forecasting is limited because the dataset contains only one last-update record per station rather than repeated historical snapshots.
+
+### 4. Prescriptive Analysis – What Should Be Done?
+
+Based on the findings, the following improvement strategies were identified:
+
+- **Bike Redistribution:** Redistribute bikes within individual contracts, giving priority to low-availability contracts after addressing station maintenance issues.
+- **Station Maintenance:** Prioritise repair and reopening of stations in contracts with high closure percentages, including Vilnius, Cergy-Pontoise, Santander, Rouen, Lillestrom and Mulhouse.
+- **Performance Monitoring:** Monitor station closure percentages regularly and establish an operational alert when the closure rate exceeds 10%.
+- **Future Data Analysis:** Include additional information such as revenue, distance travelled and operating costs to evaluate financial and operational efficiency.
+
+## 💡 Key Business Insights
+
+| Area | Key Finding |
+|---|---|
 | Total Stations | 2,856 |
 | Total Contracts | 25 |
 | Total Bike Stands | 57.20K |
 | Total Available Bikes | 19.65K |
-| Total Available Bike Stands | 32.12K |
-| Open Stations | 2.65K |
+| Open Station Percentage | 92.79% |
 | Closed Stations | 206 |
-| Open Station % | 92.79% |
-| Closed Station % | 7.21% |
-| Bike Availability % | 34.34% |
-| Average Bikes per Station | 6.88 |
-| Average Stands per Station | 20.03 |
+| Closed Station Percentage | 7.21% |
+| Bike Availability | 34.34% |
+| Highest Station Count | Lyon – 448 |
+| Highest Closed Station Count | Marseille – 52 |
+| Highest Closure Percentage | Vilnius – 97.30% |
+| Highest Average Bikes per Station | Lund – 12.7 |
 
-### Sample DAX Calculations
+## 📈 Business Value
 
-**1. Total Stations**
-```dax
-Total Stations =
-DISTINCTCOUNT(Bike_availability_fact[Station ID])
-```
+This project demonstrates how data analytics can help bike-sharing operators:
 
-**2. Open Stations**
-```dax
-Open Stations =
-CALCULATE(
-    [Total Stations],
-    Status_dim[Status] = "OPEN"
-)
-```
+- Monitor station performance and bike availability.
+- Identify contracts with operational challenges.
+- Understand station distribution across different locations.
+- Identify stations requiring maintenance.
+- Improve bike redistribution within individual contracts.
+- Monitor operational performance using interactive dashboards.
+- Support better decisions through data-driven insights.
 
-**3. Closed Station Percentage**
-```dax
-Closed Station % =
-DIVIDE(
-    [Closed Stations],
-    [Total Stations]
-)
-```
+## ⚠️ Data Limitations & Validation
 
-**4. Bike Availability Percentage**
-```dax
-Bike Availability % =
-DIVIDE(
-    [Total Available Bikes],
-    [Total Bike Stands]
-)
-```
+- The dataset contains one last-update record per station, rather than repeated historical snapshots. Therefore, monthly trends should not be treated as reliable historical forecasting.
+- Total Bike Stands (57.20K) does not equal Total Available Bikes (19.65K) plus Total Available Bike Stands (32.12K). The difference of approximately 5.43K requires validation against the original dataset.
+- The dataset does not contain revenue, distance travelled or operating cost information, limiting financial and demand analysis.
 
-## 📊 Power BI Dashboard Visualizations
+## 📁 Project Files
 
-The Power BI report consists of five interactive pages.
-
-### 1. KPI Summary
-Provides an overview of the entire bike-sharing network through key performance indicators, including total stations, open and closed stations, bike availability and station capacity.
-
-### 2. Descriptive Analysis
-Explores the distribution of bike stations across contracts, identifies the largest bike-sharing networks and visualises geographical station locations.
-
-### 3. Diagnostic Analysis
-Examines the relationship between network size and station closures, identifies contracts with low bike availability and highlights major contributors to station closures.
-
-### 4. Predictive Analysis
-Uses monthly line charts and trend lines to examine patterns in average bikes per station and closed stations based on their last-update dates.
-
-### 5. Prescriptive Analysis
-Identifies contracts requiring improved bike availability and prioritises station maintenance based on closure rates and the number of closed stations.
-
-## 🔍 Key Business Insights
-
-| Analysis Area | Key Finding |
-|---|---|
-| Network Distribution | Top 10 contracts account for approximately 84% of all stations. |
-| Station Performance | 92.79% of stations are open. |
-| Bike Availability | Only 34.34% of total bike stands hold available bikes. |
-| Station Closures | Five contracts contribute approximately 79% of all closed stations. |
-| Low Availability | Vilnius, Rouen, Mulhouse, Marseille, Cergy-Pontoise and Santander have fewer than 0.5 average bikes per station. |
-| Maintenance Priority | Vilnius has the highest closed-station percentage at 97.30%. |
-
-### 💡 Major Findings
-
-- Lyon has the highest number of stations (448), followed by Toulouse (431).
-- Marseille has the highest number of closed stations (52).
-- Vilnius has the highest proportion of closed stations (97.30%).
-- Lund, Dublin and Bruxelles-Capitale have comparatively higher average bike availability.
-- Bike availability and station closures show fluctuating monthly patterns.
-
-## 💡 Bike Sharing Network Improvement Strategies
-
-1. **Bike Redistribution:** Improve bike distribution within individual contracts based on station-level availability, using high-availability contracts as performance benchmarks.
-2. **Station Maintenance:** Prioritise repairing and reopening stations in contracts with high closure percentages.
-3. **Performance Monitoring:** Monitor closed-station percentages monthly and establish alerts when the closure rate exceeds 10%.
-4. **Future Analysis:** Incorporate revenue, distance and operating cost data to analyse revenue per kilometre and operational cost efficiency.
-
-## ⚠️ Data Limitations
-
-- The dataset contains the last-update date for each station rather than continuous historical observations.
-- Therefore, monthly trend lines represent the distribution of station records by their last-update dates and should not be interpreted as reliable forecasts of future performance.
-- The difference between total bike stands and the combined available bikes and available stands should be validated against the original source data.
-- Operational reasons for station closures cannot be established from the available attributes alone.
-
-## 🏁 Conclusion
-
-This project demonstrates the application of Power Query, data modelling and DAX in transforming raw bike-sharing data into meaningful analytical insights. The interactive Power BI dashboards help identify station performance issues, bike availability gaps and maintenance priorities across different contracts.
-
-The findings highlight the importance of effective bike distribution, timely station maintenance and continuous performance monitoring in improving the efficiency of smart city bike-sharing networks.
-
-## 📁 Repository Structure
+The repository can be organised as follows:
 
 ```text
-smart-city-bike-sharing-power-bi/
+Smart-City-Bike-Sharing-Power-BI/
 │
 ├── Dataset/
 │   └── bike-stations-sharing-data.csv
@@ -209,37 +212,38 @@ smart-city-bike-sharing-power-bi/
 ├── PowerBI/
 │   └── Smart_City_Bike_Sharing_Analysis.pbix
 │
-├── Dashboard_Screenshots/
+├── Documentation/
+│   └── Smart_City_Bike_Sharing_Project_Report.pdf
+│
+├── Screenshots/
 │   ├── KPI_Summary.png
 │   ├── Descriptive_Analysis.png
 │   ├── Diagnostic_Analysis.png
 │   ├── Predictive_Analysis.png
 │   └── Prescriptive_Analysis.png
 │
-├── Documentation/
-│   └── Project_Report.pdf
-│
 └── README.md
 ```
 
-*Note: This is a suggested folder structure. Include the dataset only if its sharing and usage terms permit redistribution.*
+*Replace the example filenames with the actual filenames uploaded. Share the dataset only if redistribution is permitted.*
 
-## 🚀 How to Explore the Project
+## 🚀 Skills Demonstrated
 
-1. Clone or download this repository.
-2. Open the `.pbix` file using Microsoft Power BI Desktop.
-3. Explore the five dashboard pages.
-4. Interact with the slicers to analyse different contracts, years, months and station statuses.
-5. Review the project documentation for detailed methodology and findings.
+- Data Cleaning and Data Preparation
+- Exploratory Data Analysis
+- Power Query and Data Transformation
+- Star Schema and Data Modelling
+- DAX Measures and KPI Development
+- Data Visualization
+- Descriptive and Diagnostic Analysis
+- Predictive and Prescriptive Analysis
+- Power BI Dashboard Development
+- Business Insights and Data-Driven Recommendations
 
-## 👩‍💻 About the Author
+## 👩‍💻 About Me
 
-**Monisha B**
+I am an **Aspiring Data Analyst** interested in transforming raw data into meaningful insights and supporting better business decisions.
 
-Aspiring Data Analyst | Power BI | Excel | SQL | Data Visualization
+This project represents my practical learning in Power Query, data modelling, DAX and Power BI, with a focus on business-oriented data analysis and interactive visualisation.
 
-Interested in transforming raw data into meaningful insights and supporting better business decisions through data analytics.
-
----
-
-⭐ If you find this project interesting, feel free to explore the dashboards and share your feedback!
+**Thank you for visiting my project!**
